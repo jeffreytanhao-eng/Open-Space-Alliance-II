@@ -20,7 +20,8 @@
         "@type": "Organization",
         "name": "开源太空生态联盟",
         "alternateName": "Open Space Ecosystem Alliance",
-        "description": "打破航天技术壁垒，聚合全球创新力量，打造全球领先的开源卫星生态体系",
+        "description": "打破航天技术壁垒，聚合全球创新力量，打造全球领先的开源太空生态体系",
+
         "url": "https://www.osea-alliance.org"
     }
     </script>
@@ -578,26 +579,43 @@
             aspect-ratio: 1; background: var(--color-card-bg);
             border: 1px solid var(--color-border);
             border-radius: var(--radius-lg);
-            display: flex; align-items: center; justify-content: center;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: var(--space-sm);
             transition: all var(--transition-normal);
-            filter: grayscale(100%); opacity: 0.7;
+            opacity: 0.7;
             cursor: default;
+            padding: var(--space-md);
         }
         .member-logo:hover {
-            filter: grayscale(0%); opacity: 1;
+            opacity: 1;
             border-color: var(--color-border-hover);
             transform: scale(1.05);
         }
+        .member-logo.real-member {
+            opacity: 1;
+        }
+        .member-logo.real-member:hover {
+            border-color: var(--color-accent, #2E7DFF);
+            box-shadow: 0 0 20px rgba(46,125,255,0.3);
+        }
+        .member-logo .member-img {
+            max-width: 80%; max-height: 55%;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
         .member-logo .logo-placeholder {
-            font-size: var(--text-2xl); font-weight: 700;
-            color: var(--color-text-muted); font-family: var(--font-en);
+            font-size: var(--text-sm); font-weight: 500;
+            color: var(--color-text-muted);
+            letter-spacing: 2px;
         }
         .member-logo .logo-name {
-            position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%);
-            font-size: var(--text-xs); color: var(--color-text-muted);
-            white-space: nowrap; opacity: 0; transition: opacity var(--transition-fast);
+            font-size: var(--text-xs); color: var(--color-text-secondary);
+            font-weight: 500; letter-spacing: 0.5px;
+            text-align: center;
+            max-width: 100%;
+            overflow: hidden; text-overflow: ellipsis;
         }
-        .member-logo:hover .logo-name { opacity: 1; }
 
         /* ============================================================
            S7: FOOTER
@@ -1007,7 +1025,7 @@
                             <span class="feature-tag" data-i18n="ecosystem.opensatos_f3">SDK/CI-CD</span>
                         </div>
                     </div>
-                    <!-- OpenSatCloud -->
+                    <!-- OpenSatOps -->
                     <div class="ecosystem-card fade-in fade-in-delay-3">
                         <div class="eco-icon">
                             <svg viewBox="0 0 48 48" fill="none">
@@ -1020,13 +1038,13 @@
                                 <circle cx="24" cy="40" r="2" fill="#00D4FF" opacity="0.4"/>
                             </svg>
                         </div>
-                        <h3>OpenSatCloud</h3>
-                        <p class="eco-zh-name" data-i18n="ecosystem.opensatcloud_zh">仿真与数据平台</p>
-                        <p data-i18n="ecosystem.opensatcloud_desc">提供从卫星设计、仿真验证到在轨运维的全周期数字化工具链，实现数据共享与云端协同开发，支撑大规模星座集群化管理。</p>
+                        <h3>OpenSatOps</h3>
+                        <p class="eco-zh-name" data-i18n="ecosystem.opensatcloud_zh">管控与运维平台</p>
+                        <p data-i18n="ecosystem.opensatcloud_desc">提供卫星测控、运控、在轨健康管理与任务调度的一体化管控能力，实现多星多站协同运行，支撑星座日常运维与应急响应。</p>
                         <div class="features">
-                            <span class="feature-tag" data-i18n="ecosystem.opensatcloud_f1">全维度仿真</span>
-                            <span class="feature-tag" data-i18n="ecosystem.opensatcloud_f2">遥测分析</span>
-                            <span class="feature-tag" data-i18n="ecosystem.opensatcloud_f3">星座管理</span>
+                            <span class="feature-tag" data-i18n="ecosystem.opensatcloud_f1">测控运控</span>
+                            <span class="feature-tag" data-i18n="ecosystem.opensatcloud_f2">健康管理</span>
+                            <span class="feature-tag" data-i18n="ecosystem.opensatcloud_f3">任务调度</span>
                         </div>
                     </div>
                     <!-- OpenCertification -->
@@ -1122,26 +1140,33 @@
                 <h2 class="section-title fade-in" data-i18n="members.title">成员单位</h2>
                 <div class="accent-line fade-in"></div>
                 <p class="section-subtitle fade-in" data-i18n="members.subtitle">汇聚全球航天生态参与者，共建开源航天未来</p>
-                <div class="member-filters fade-in">
+                <div class="member-filters fade-in" style="display:none;">
                     <button class="filter-btn active" data-filter="all" data-i18n="members.filter_all">全部</button>
                     <button class="filter-btn" data-filter="founding" data-i18n="members.filter_founding">创始成员</button>
                     <button class="filter-btn" data-filter="core" data-i18n="members.filter_core">核心成员</button>
                     <button class="filter-btn" data-filter="partner" data-i18n="members.filter_partner">生态伙伴</button>
                 </div>
                 <div class="members-grid" id="members-grid">
-                    <!-- Placeholder members -->
-                    <div class="member-logo fade-in" data-category="founding"><span class="logo-placeholder">A</span></div>
-                    <div class="member-logo fade-in fade-in-delay-1" data-category="founding"><span class="logo-placeholder">B</span></div>
-                    <div class="member-logo fade-in fade-in-delay-2" data-category="founding"><span class="logo-placeholder">C</span></div>
-                    <div class="member-logo fade-in fade-in-delay-3" data-category="core"><span class="logo-placeholder">D</span></div>
-                    <div class="member-logo fade-in fade-in-delay-4" data-category="core"><span class="logo-placeholder">E</span></div>
-                    <div class="member-logo fade-in fade-in-delay-5" data-category="core"><span class="logo-placeholder">F</span></div>
-                    <div class="member-logo fade-in" data-category="core"><span class="logo-placeholder">G</span></div>
-                    <div class="member-logo fade-in fade-in-delay-1" data-category="partner"><span class="logo-placeholder">H</span></div>
-                    <div class="member-logo fade-in fade-in-delay-2" data-category="partner"><span class="logo-placeholder">I</span></div>
-                    <div class="member-logo fade-in fade-in-delay-3" data-category="partner"><span class="logo-placeholder">J</span></div>
-                    <div class="member-logo fade-in fade-in-delay-4" data-category="partner"><span class="logo-placeholder">K</span></div>
-                    <div class="member-logo fade-in fade-in-delay-5" data-category="partner"><span class="logo-placeholder">L</span></div>
+                    <!-- 开运联合 Creatunion -->
+                    <div class="member-logo real-member fade-in">
+                        <img class="member-img" src="assets/creatunion-logo.png" alt="Creatunion"/>
+                        <span class="logo-name" data-i18n="members.creatunion">开运联合</span>
+                    </div>
+                    <div class="member-logo fade-in fade-in-delay-1">
+                        <span class="logo-placeholder" data-i18n="members.placeholder">虚位以待</span>
+                    </div>
+                    <div class="member-logo fade-in fade-in-delay-2">
+                        <span class="logo-placeholder" data-i18n="members.placeholder">虚位以待</span>
+                    </div>
+                    <div class="member-logo fade-in fade-in-delay-3">
+                        <span class="logo-placeholder" data-i18n="members.placeholder">虚位以待</span>
+                    </div>
+                    <div class="member-logo fade-in fade-in-delay-4">
+                        <span class="logo-placeholder" data-i18n="members.placeholder">虚位以待</span>
+                    </div>
+                    <div class="member-logo fade-in fade-in-delay-5">
+                        <span class="logo-placeholder" data-i18n="members.placeholder">虚位以待</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1340,11 +1365,11 @@
                 'ecosystem.opensatos_f1': 'Linux/RTOS',
                 'ecosystem.opensatos_f2': '中间件标准',
                 'ecosystem.opensatos_f3': 'SDK/CI-CD',
-                'ecosystem.opensatcloud_zh': '仿真与数据平台',
-                'ecosystem.opensatcloud_desc': '提供从卫星设计、仿真验证到在轨运维的全周期数字化工具链，实现数据共享与云端协同开发，支撑大规模星座集群化管理。',
-                'ecosystem.opensatcloud_f1': '全维度仿真',
-                'ecosystem.opensatcloud_f2': '遥测分析',
-                'ecosystem.opensatcloud_f3': '星座管理',
+                'ecosystem.opensatcloud_zh': '管控与运维平台',
+                'ecosystem.opensatcloud_desc': '提供卫星测控、运控、在轨健康管理与任务调度的一体化管控能力，实现多星多站协同运行，支撑星座日常运维与应急响应。',
+                'ecosystem.opensatcloud_f1': '测控运控',
+                'ecosystem.opensatcloud_f2': '健康管理',
+                'ecosystem.opensatcloud_f3': '任务调度',
                 'ecosystem.opencert_zh': '认证体系',
                 'ecosystem.opencert_desc': '建立统一的兼容性与质量认证标准，对联盟内软硬件及服务进行合规性检测，确保生态可靠性与产品质量。',
                 'ecosystem.opencert_f1': '兼容性认证',
@@ -1370,6 +1395,8 @@
                 'members.filter_founding': '创始成员',
                 'members.filter_core': '核心成员',
                 'members.filter_partner': '生态伙伴',
+                'members.creatunion': '开运联合',
+                'members.placeholder': '虚位以待',
                 'footer.brand_desc': '开源太空生态联盟 —— 打破航天技术壁垒，聚合全球创新力量，打造全球领先的开源卫星生态体系。',
                 'footer.quick_links': '快速链接',
                 'footer.contact': '联系我们',
@@ -1438,11 +1465,11 @@
                 'ecosystem.opensatos_f1': 'Linux/RTOS',
                 'ecosystem.opensatos_f2': 'Middleware',
                 'ecosystem.opensatos_f3': 'SDK/CI-CD',
-                'ecosystem.opensatcloud_zh': 'Simulation & Data Platform',
-                'ecosystem.opensatcloud_desc': 'Providing a full-lifecycle digital toolchain from satellite design and simulation verification to on-orbit operations, enabling data sharing and cloud-based collaborative development.',
-                'ecosystem.opensatcloud_f1': 'Full Simulation',
-                'ecosystem.opensatcloud_f2': 'Telemetry Analysis',
-                'ecosystem.opensatcloud_f3': 'Constellation Mgmt',
+                'ecosystem.opensatcloud_zh': 'Control & Operations Platform',
+                'ecosystem.opensatcloud_desc': 'Providing integrated satellite TT&C, operations control, on-orbit health management and mission scheduling capabilities, enabling multi-satellite multi-station coordinated operations for daily constellation maintenance and emergency response.',
+                'ecosystem.opensatcloud_f1': 'TT&C & Ops',
+                'ecosystem.opensatcloud_f2': 'Health Mgmt',
+                'ecosystem.opensatcloud_f3': 'Mission Sched',
                 'ecosystem.opencert_zh': 'Certification System',
                 'ecosystem.opencert_desc': 'Establishing unified compatibility and quality certification standards for compliance testing of software, hardware, and services within the alliance ecosystem.',
                 'ecosystem.opencert_f1': 'Compatibility',
@@ -1468,6 +1495,8 @@
                 'members.filter_founding': 'Founding',
                 'members.filter_core': 'Core',
                 'members.filter_partner': 'Partners',
+                'members.creatunion': 'Creatunion',
+                'members.placeholder': 'Coming Soon',
                 'footer.brand_desc': 'Open Space Ecosystem Alliance — Breaking space technology barriers, uniting global innovation forces, building the world\'s leading open satellite ecosystem.',
                 'footer.quick_links': 'Quick Links',
                 'footer.contact': 'Contact Us',
