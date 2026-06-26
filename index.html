@@ -704,32 +704,52 @@
            ============================================================ */
         .whitepaper-download {
             text-align: center;
-            margin-top: var(--space-2xl);
+            margin-top: var(--space-3xl);
+            padding-top: var(--space-lg);
         }
-        .whitepaper-download .btn-whitepaper {
+        .btn-whitepaper {
             display: inline-flex;
             align-items: center; gap: var(--space-sm);
-            padding: var(--space-md) var(--space-xl);
+            padding: 12px 28px;
             background: linear-gradient(135deg, #2E7DFF, #00D4FF);
             color: #fff;
-            border-radius: var(--radius-md);
+            border-radius: 50px;
             font-size: var(--text-sm);
             font-weight: 600;
+            letter-spacing: 0.3px;
             text-decoration: none;
-            border: none;
+            border: 1px solid rgba(0,212,255,0.3);
             cursor: pointer;
             transition: all var(--transition-base);
-            box-shadow: 0 4px 16px rgba(46,125,255,0.3);
+            box-shadow: 0 4px 20px rgba(46,125,255,0.25);
+            position: relative;
+            overflow: hidden;
         }
-        .whitepaper-download .btn-whitepaper:hover {
+        .btn-whitepaper::before {
+            content: '';
+            position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-whitepaper:hover::before { left: 100%; }
+        .btn-whitepaper:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(0,212,255,0.4);
+            box-shadow: 0 8px 30px rgba(0,212,255,0.4);
+            border-color: rgba(0,212,255,0.6);
         }
         .btn-whitepaper svg { width: 18px; height: 18px; flex-shrink: 0; }
         .whitepaper-download-card {
-            margin-top: var(--space-lg);
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(46,125,255,0.15);
             display: flex; justify-content: center;
         }
+        .whitepaper-download-card .btn-whitepaper {
+            padding: 10px 22px;
+            font-size: 13px;
+        }
+        .whitepaper-download-card .btn-whitepaper svg { width: 16px; height: 16px; }
 
         /* ============================================================
            RESPONSIVE
