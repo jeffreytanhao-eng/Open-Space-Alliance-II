@@ -700,6 +700,38 @@
         }
 
         /* ============================================================
+           WHITEPAPER DOWNLOAD
+           ============================================================ */
+        .whitepaper-download {
+            text-align: center;
+            margin-top: var(--space-2xl);
+        }
+        .whitepaper-download .btn-whitepaper {
+            display: inline-flex;
+            align-items: center; gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            background: linear-gradient(135deg, #2E7DFF, #00D4FF);
+            color: #fff;
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: 0 4px 16px rgba(46,125,255,0.3);
+        }
+        .whitepaper-download .btn-whitepaper:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0,212,255,0.4);
+        }
+        .btn-whitepaper svg { width: 18px; height: 18px; flex-shrink: 0; }
+        .whitepaper-download-card {
+            margin-top: var(--space-lg);
+            display: flex; justify-content: center;
+        }
+
+        /* ============================================================
            RESPONSIVE
            ============================================================ */
         @media (max-width: 1024px) {
@@ -930,6 +962,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="whitepaper-download">
+                    <a href="whitepaper/开源太空生态联盟白皮书.pdf" download class="btn-whitepaper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        <span data-i18n="about.whitepaper_main">下载《开源太空生态联盟白皮书》</span>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -983,6 +1021,12 @@
                             <span class="tag" data-i18n="sub_alliances.osea_tag2">载荷接口统一</span>
                             <span class="tag" data-i18n="sub_alliances.osea_tag3">在轨软件生态</span>
                             <span class="tag" data-i18n="sub_alliances.osea_tag4">仿真与数据平台</span>
+                        </div>
+                        <div class="whitepaper-download-card">
+                            <a href="whitepaper/开源卫星生态联盟白皮书.pdf" download class="btn-whitepaper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                <span data-i18n="sub_alliances.whitepaper_sat">下载《开源卫星生态联盟白皮书》</span>
+                            </a>
                         </div>
                     </div>
                     <!-- OREA Card (Coming Soon) -->
@@ -1428,6 +1472,7 @@
                 'about.stat2_label': '预参与的国家与地区',
                 'about.stat3_num': '5',
                 'about.stat3_label': '开源标准体系',
+                'about.whitepaper_main': '下载《开源太空生态联盟白皮书》',
                 'sub_alliances.title': '子联盟',
                 'sub_alliances.subtitle': '聚焦卫星与火箭两大核心领域，构建完整的开源航天生态',
                 'sub_alliances.osea_title': '开源卫星生态联盟',
@@ -1436,6 +1481,7 @@
                 'sub_alliances.osea_tag2': '载荷接口统一',
                 'sub_alliances.osea_tag3': '在轨软件生态',
                 'sub_alliances.osea_tag4': '仿真与数据平台',
+                'sub_alliances.whitepaper_sat': '下载《开源卫星生态联盟白皮书》',
                 'sub_alliances.orea_title': '开源火箭生态联盟',
                 'sub_alliances.orea_desc': '聚焦火箭领域的开源标准与生态建设，致力于推动运载火箭的标准化、模块化和低成本化，构建开源的发射服务生态体系。',
                 'sub_alliances.orea_tag1': '火箭标准化',
@@ -1532,6 +1578,7 @@
                 'about.stat2_label': 'Pre-Participating Countries & Regions',
                 'about.stat3_num': '5',
                 'about.stat3_label': 'Open Standards',
+                'about.whitepaper_main': 'Download Open Space Ecosystem Alliance Whitepaper',
                 'sub_alliances.title': 'Sub-Alliances',
                 'sub_alliances.subtitle': 'Focusing on satellite and rocket domains to build a complete open space ecosystem',
                 'sub_alliances.osea_title': 'Open Satellite Ecosystem Alliance',
@@ -1540,6 +1587,7 @@
                 'sub_alliances.osea_tag2': 'Payload Interface',
                 'sub_alliances.osea_tag3': 'On-orbit Software',
                 'sub_alliances.osea_tag4': 'Simulation & Data',
+                'sub_alliances.whitepaper_sat': 'Download Open Satellite Ecosystem Alliance Whitepaper',
                 'sub_alliances.orea_title': 'Open Rocket Ecosystem Alliance',
                 'sub_alliances.orea_desc': 'Focusing on open standards and ecosystem building in the rocket domain, dedicated to promoting standardization, modularization, and cost reduction of launch vehicles.',
                 'sub_alliances.orea_tag1': 'Rocket Standardization',
